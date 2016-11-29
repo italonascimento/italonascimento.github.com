@@ -71,6 +71,8 @@ defaults:
     values:
       layout:       "post"
 
+comments:           true
+
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 gems:
   - jekyll-seo-tag
