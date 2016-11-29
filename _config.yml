@@ -3,7 +3,7 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Ítalo Nascimento"
+name:               "news from the front"
 
 
 
@@ -21,7 +21,7 @@ disqus:
 
 # URL
 #url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
-url:                "italonascimento.github.io" # use this url when develop
+url:                "http://italonascimento.github.io" # use this url when develop
 baseurl:            "" # the subpath of your site, e.g. /blog
 
 
