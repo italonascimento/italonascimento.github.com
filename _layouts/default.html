@@ -1,6 +1,11 @@
----
-theme :
-  name : tom
----
-{% include JB/setup %}
-{% include themes/tom/default.html %}
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+  <div class="content-container">
+    {{ content }}
+
+    {% include footer.html %}
+  </div>
+</body>
+</html>
