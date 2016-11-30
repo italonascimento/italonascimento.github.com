@@ -12,7 +12,8 @@ No doubt: frontend development has changed a lot.
 
 Since the rising of the [Web Standards](https://www.w3.org/standards/), web technologies have reached huge proportions and significantly evolved it's potential. Due to an open nature and well defined specifications, the standards spread the world and are today supported in almost any device available on the market.
 
-In this new context, to program **JavaScript** is not to create simple code snippets and to load them in HTML anymore. It is currently synonym to develop complex applications, and therefore, there are a lot more to take in concern than ever were.
+In this new context, to program JavaScript is not to create simple code snippets and to load them in HTML anymore. It is currently synonym to develop complex applications, and therefore, there are a lot more to take in concern than ever were.
+
 
 ## Development environment: what for?
 
@@ -22,11 +23,12 @@ The answer: by **setting up a good environment**.
 
 There are plenty of JavaScript libraries and tools available. If we pick the right ones and successfully combine them, we can achieve amazing results, such as:
 
-* Write code in a newer standard ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and **compiling** down to the widely supported ECMAScript 5;
-* Keep our code modular and **bundle** it up to a single file for production;
+* Write code in a newer standard ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and **compile** down to widely supported ECMAScript 5;
+* Keep code modular and **bundle** it up to a single file for production;
 * **Manage dependencies** when using third part modules.
 
-## Configuring a basic environment?
+
+## Configuring a basic environment
 
 Let's get our hands dirty and set up a basic environment. It will include:
 
@@ -36,9 +38,8 @@ Let's get our hands dirty and set up a basic environment. It will include:
 4. Task automation with [npm scripts](https://docs.npmjs.com/misc/scripts);
 5. Live-reload server with [live-server](https://www.npmjs.com/package/live-server)
 
-### 1. Dependency management with npm
 
-#### 1.1 Installing node.js
+### 1. Dependency management with npm
 
 First things first: before we use npm, let's make sure we have the last node.js version installed:
 
@@ -49,7 +50,8 @@ $ v6.9.1
 
 If you have an earlier version in your machine (or no version at all), you can grab the latest one in [node's downloads' page](https://nodejs.org/en/download/) or install it [via package manager](https://nodejs.org/en/download/package-manager/).
 
-#### 1.2 Verifying npm version
+
+#### Verifying npm version
 
 Oce node.js is installed, npm is surely also available. Let's verify it's version:
 
@@ -66,7 +68,8 @@ $ sudo npm install -g npm
 
 *(Omit `sudo` if you're on Windows)*
 
-#### 1.3 Starting a project
+
+#### Starting the project
 
 Now that node and npm are up to date, we can start a new project. Create the project folder and run the command `npm init` inside of it:
 
@@ -79,11 +82,13 @@ $ npm init
 
 This will create the following structure:
 
-  my-project/
-      |
-      ├─ dist/
-      |
-      └─ src/
+```
+my-project/
+    |
+    ├─ dist/
+    |
+    └─ src/
+```
 
 Then, npm will ask a few questions about your project, for which you can type an answer or hit *enter* to go with the default. After answering the questions, a `package.json` will be created in the project root. This file contains all the information about your applications in what concerns to dependency management. It should look somewhat like this:
 
@@ -98,7 +103,8 @@ Then, npm will ask a few questions about your project, for which you can type an
 }
 ```
 
-#### 1.4 Installing some dependencies
+
+#### Installing dependencies
 
 As I stated before, for this project we're going to install webpack and babel. They are both development dependencies, which means they're required during development but not in production (as they're a bundling and a compiling tool, right?). For that reason, we're going to pass the flag `--save-dev` to npm along with the installation command:
 
@@ -115,6 +121,7 @@ $ npm install --save jquery
 ```
 
 It will be referenced in `package.json` under `dependencies`.
+
 
 ### 2. Configuring webpack
 
@@ -142,6 +149,7 @@ Two things to notice about this setup:
 
 1. We're setting `babel-loader` to work on files that match `/\.js$/`, which means every JavaScript file will be processed by babel during the bundling;
 2. We're declaring `jquery` as an external module, which means we're going to include it by hand and it should not be part of the bundle, what allow browser to cache the lib.
+
 
 ### 3. Configuring babel
 
