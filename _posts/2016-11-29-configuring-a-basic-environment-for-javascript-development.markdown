@@ -175,5 +175,16 @@ Task running is a fundamental tool during development process, and yet there are
 Let's open our `package.json` and append some code:
 
 ```json
-
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Your Name <your_email@foo.bar>",
+  "license": "ISC",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  }
+}
 ```
