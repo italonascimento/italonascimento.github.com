@@ -8,9 +8,7 @@ comments: true
 share: true
 ---
 
-No doubt: frontend development has changed a lot.
-
-Since the rising of the [Web Standards](https://www.w3.org/standards/), web technologies have reached huge proportions and significantly evolved it's potential. Due to an open nature and well defined specifications, the standards spread the world and are today supported in almost any device available on the market.
+No doubt: frontend development has changed a lot. Since the rising of the [Web Standards](https://www.w3.org/standards/), web technologies have reached huge proportions and significantly evolved it's potential. Due to an open nature and well defined specifications, the standards spread the world and are today supported in almost any device available on the market.
 
 In this new context, to program JavaScript is not to create simple code snippets and to load them in HTML anymore. It is currently synonym to develop complex applications, and therefore, there are a lot more to take in concern than ever were.
 
@@ -19,7 +17,7 @@ In this new context, to program JavaScript is not to create simple code snippets
 
 The development of complex applications require things such as modularity and high level programming paradigms. Although, since the current widely supported version of JavaScript (ECMAScript 5) doesn't have such features out of the box, how could we use it to build anything really complex, reliable and cross platform?
 
-The answer: by **setting up a good environment**.
+The answer: by setting up a good environment.
 
 There are plenty of JavaScript libraries and tools available. If we pick the right ones and successfully combine them, we can achieve amazing results, such as:
 
@@ -36,7 +34,7 @@ Let's get our hands dirty and set up a basic environment. It will include:
 2. Module bundling with [webpack](https://webpack.github.io/);
 3. ES6 compilation with [babel](https://babeljs.io/);
 4. Task automation with [npm scripts](https://docs.npmjs.com/misc/scripts);
-5. Live-reload server with [live-server](https://www.npmjs.com/package/live-server).
+5. Live-reload development server with [live-server](https://www.npmjs.com/package/live-server).
 
 
 ### 1. Dependency management with npm
@@ -98,6 +96,9 @@ Then, npm will ask a few questions about your project, for which you can type an
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Your Name <your_email@foo.bar>",
   "license": "ISC"
 }
@@ -180,11 +181,83 @@ Let's open our `package.json` and append some code:
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "Your Name <your_email@foo.bar>",
-  "license": "ISC",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch"
-  }
+  },
+  "author": "Your Name <your_email@foo.bar>",
+  "license": "ISC"
 }
 ```
+
+We are able to run the tasks like this:
+
+```console
+$ npm run build
+$ npm run watch
+```
+
+Then, npm will run the specified commands of our task in the console.
+
+
+#### Adding multiple commands to a task
+
+In the example above we have a single command in each of our tasks, so what's the point, right? We could just run `webpack` from the terminal, with no need of npm scripts. But what if our building process included more than just webpacking? Maybe compiling some SCSS?
+
+Let's try:
+
+```console
+$ npm install --save-dev node-sass
+```
+
+And our `scripts` object would look like this:
+
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "webpack && node-sass ./scss -o ./css && exit 0",
+  "watch": "webpack --watch & node-sass --watch ./scss -o ./css"
+}
+```
+
+For the `build` command we're bundling our JavaScript, compiling our SCSS and exiting. As we're using the `&&` operator, next command gets executed only if previous succeeded.
+
+On the other hand, for our `watch` command it's impossible to wait previous command to succeed, as both `--watch` actions will stay running undefinetly. In such cases we can use `&` operator to run commands simultaneously.
+
+
+### 5. Using a live-reload development server
+
+A live-reload server can really accelerate development process. It's all we need to finish our basic environment and start worrying only about our application itself.
+
+Install the server globally:
+
+```console
+$ sudo npm install -g live-server
+```
+
+*(Remember to omit `sudo` if you're on Windows)*
+
+Once it's installed, navigate to the root of the project and run:
+
+```console
+$ live-server
+```
+
+The project folder will be served at `127.0.0.1:8080`. The page will automatically reload on any JavaScript change and even inject CSS changes without reloading!
+
+Or... we could do even better, by adding it to our npm scripts!
+
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "webpack && node-sass ./scss -o ./css && exit 0",
+  "watch": "webpack --watch & node-sass --watch ./scss -o ./css",
+  "serve": "npm run watch & live-server"
+}
+```
+
+That's it. Call `npm run serve` in the terminal and start coding your project. Everything will be compiled and served on every change.
+
+
+Any doubts or considerations? Please leave a comment or send me and e-mail. :)
