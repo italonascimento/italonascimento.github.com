@@ -33,10 +33,10 @@ There are plenty of JavaScript libraries and tools available. If we pick the rig
 Let's get our hands dirty and set up a basic environment. It will include:
 
 1. Dependency management with [npm](https://www.npmjs.com/);
-2. ES6 compilation with [babel](https://babeljs.io/);
-3. Module bundling with [webpack](https://webpack.github.io/);
+2. Module bundling with [webpack](https://webpack.github.io/);
+3. ES6 compilation with [babel](https://babeljs.io/);
 4. Task automation with [npm scripts](https://docs.npmjs.com/misc/scripts);
-5. Live-reload server with [live-server](https://www.npmjs.com/package/live-server)
+5. Live-reload server with [live-server](https://www.npmjs.com/package/live-server).
 
 
 ### 1. Dependency management with npm
@@ -145,10 +145,10 @@ module.exports = {
 }
 ```
 
-Two things to notice about this setup:
+**Two things to notice about this setup:**
 
 1. We're setting `babel-loader` to work on files that match `/\.js$/`, which means every JavaScript file will be processed by babel during the bundling;
-2. We're declaring `jquery` as an external module, which means we're going to include it by hand and it should not be part of the bundle, what allow browser to cache the lib.
+2. We're declaring `jquery` as an external module, which means we're going to include it by hand and it should not be part of the bundle, what allow browsers to cache the lib.
 
 
 ### 3. Configuring babel
@@ -165,4 +165,15 @@ Now, create a file called `.babelrc` on the project root and past this:
 {
   "presets": ["latest"]
 }
+```
+
+
+### 4. Using npm script to automate tasks
+
+Task running is a fundamental tool during development process, and yet there are some very popular modules available to address it, npm itself offers us an straight forward approach.
+
+Let's open our `package.json` and append some code:
+
+```json
+
 ```
