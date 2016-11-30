@@ -2,7 +2,7 @@
 layout: post
 title: "Configuring a basic environment for JavaScript development"
 description: "An step-by-step tutorial on how to setup a basic environment to develop complex JavaScript applications"
-date: 2016-22-29
+date: 2016-11-29
 tags: [javascript, npm, webpack, babel]
 comments: true
 share: true
