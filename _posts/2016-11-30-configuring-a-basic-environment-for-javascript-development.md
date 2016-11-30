@@ -169,7 +169,7 @@ Now, create a file called `.babelrc` on the project root and past this:
 ```
 
 
-### 4. Using npm script to automate tasks
+### 4. Using npm scripts to automate tasks
 
 Task running is a fundamental tool during development process, and yet there are some very popular modules available to address it, npm itself offers us an straight forward approach.
 
@@ -259,5 +259,8 @@ Or... we could do even better, by adding it to our npm scripts!
 
 That's it. Call `npm run serve` in the terminal and start coding your project. Everything will be compiled and served on every change.
 
+```console
+$ npm run serve
+```
 
 Any doubts or considerations? Please leave a comment or send me and e-mail. :)
