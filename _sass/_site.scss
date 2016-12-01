@@ -73,6 +73,14 @@ body {
 
       + a {
         margin-left: .25rem;
+        position: relative;
+
+        &::before{
+          content: '.';
+          position: absolute;
+          left: -6px;
+          top: -6px;
+        }
       }
     }
   }
