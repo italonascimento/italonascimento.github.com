@@ -8,9 +8,11 @@ comments: true
 share: true
 ---
 
-No doubt: front-end development has changed a lot. Since the rising of the [Web Standards](https://www.w3.org/standards/), web technologies have reached huge proportions and significantly evolved it's potential. Due to an open nature and well defined specifications, the standards spread the world and are today supported in almost any device available on the market.
+No doubt: front-end development has changed a lot.
 
-In this new context, to program JavaScript is not to create simple code snippets and to load them in HTML anymore. It is currently synonym to develop complex applications, and therefore, there are a lot more to take in concern than ever were.
+Since the rising of the [Web Standards](https://www.w3.org/standards/), web technologies have reached huge proportions and significantly evolved its potential. Due to an open nature and well defined specifications, the standards spread the world and are today supported in almost any device available on the market.
+
+In this new context, to program JavaScript is not anymore to create simple code snippets and to load them in HTML. It is currently synonym of developing complex applications, and therefore, there are more to take in concern than ever were.
 
 
 ## Development environment: what for?
@@ -19,11 +21,12 @@ The development of complex applications require things such as modularity and hi
 
 The answer: by setting up a good environment.
 
-There are plenty of JavaScript libraries and tools available. If we pick the right ones and successfully combine them, we can achieve amazing results, such as:
+There are plenty of JavaScript libraries and tools available, and each of them aim to address specific issues. If we pick the right ones and successfully combine them, we are able to build our own integrated development environment, fully addapted to our (and our project's) needs. This way we can achieve amazing results, such as:
 
-* Write code in a newer standard ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and **compile** down to widely supported ECMAScript 5;
-* Keep code modular and **bundle** it up to a single file for production;
-* **Manage dependencies** when using third part modules.
+* Write code in a newer standards ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and compile to widely supported ECMAScript 5;
+* Keep code modular and bundle it up to a single file for production;
+* Manage dependencies when using third part modules;
+* Automate tasks that are constantly repeated during development.
 
 
 ## Configuring a basic environment
