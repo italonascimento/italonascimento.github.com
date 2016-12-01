@@ -54,7 +54,7 @@ If you have an earlier version in your machine (or no version at all), you can g
 
 #### Verifying npm version
 
-Oce node.js is installed, npm is surely also available. Let's verify it's version:
+Once node.js is installed, npm is surely also available. Let's verify it's version:
 
 ```console
 $ npm --version
