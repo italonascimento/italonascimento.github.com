@@ -23,7 +23,7 @@ The answer: by setting up a good environment.
 
 There are plenty of JavaScript libraries and tools available, and each of them aim to address specific issues. If we pick the right ones and successfully combine them, we are able to build our own integrated development environment, fully addapted to our (and our project's) needs. This way we can achieve amazing results, such as:
 
-* Write code in a newer standards ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and compile to widely supported ECMAScript 5;
+* Write code in newer standards ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and compile to widely supported ECMAScript 5;
 * Keep code modular and bundle it up to a single file for production;
 * Manage dependencies when using third part modules;
 * Automate tasks that are constantly repeated during development.
