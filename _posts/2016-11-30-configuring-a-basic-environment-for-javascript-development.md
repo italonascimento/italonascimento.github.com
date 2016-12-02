@@ -56,7 +56,7 @@ If you have an earlier version in your machine (or no version at all), you can g
 
 Once node.js is installed, npm is surely also available. Let's verify it's version:
 
-```console
+```consolem
 $ npm --version
 $ 4.0.2
 ```
@@ -113,7 +113,7 @@ Then, npm will ask a few questions about your project, for which you can type an
 As I stated before, for this project we're going to install webpack and babel. They are both development dependencies, which means they're required during development but not in production (as they're a bundling and a compiling tool, right?). For that reason, we're going to pass the flag `--save-dev` to npm along with the installation command:
 
 ```console
-$ npm install --save-dev webpack babel-loader babael-core
+$ npm install --save-dev webpack babel-loader babel-core
 ```
 
 Now they're installed under `/node_modules` and referenced in `package.json` under `devDependencies`.
