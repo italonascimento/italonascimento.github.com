@@ -10,9 +10,7 @@ share: true
 
 Sometimes a promise may take too long to resolve or reject, and sometimes we just can't wait for it.
 
-There are many use cases in which this may apply, and you may have faced such scenario at least once in your coding life.
-
-I won't focus in any specific situation here, instead I'll try to show you a way (not the only one) to define a generic timeout that can be applied to any promise in your project, without any need to refactor the promise itself - in case you receiving it from a third part module, for example.
+There are many use cases in which this may apply, and you may have faced such scenario at least once in your coding life. I won't focus in any specific situation here, instead I'll try to show you a way (not the only one) to define a generic timeout that can be applied to any promise in your project, without any need to refactor the promise itself - in case you're receiving it from a third part module, for example.
 
 ## The problem
 
@@ -45,7 +43,7 @@ doIt.catch(error => {
 
 It's a powerful pattern, for sure, but doesn't give us much control, right? All we can do is to wait for `doSomething` to do whatever it needs, and to finally resolve/reject and fire our callbacks.
 
-Now, let's suppose a scenario in which `doSomething` takes too long do resolve or reject. Maybe it's trying to reach a server through a poor connection, or to parse a truly big file, doesn't matter. The important thing is that our application can't wait more than 5 seconds for a response, and if `doSomething` takes more than that, we need it to timeout and reject, firing our `catch` callback.
+Now, let's suppose a scenario in which `doSomething` takes too long to resolve or reject. Maybe it's trying to reach a server through a poor connection, or to parse a truly big file, doesn't matter. The important thing is that our application can't wait more than 5 seconds for a response, and if `doSomething` takes more than that, we need it to timeout and reject, firing our `catch` callback.
 
 ## Using Promise.race
 
@@ -111,9 +109,11 @@ const promiseTimeout = function(ms, promise){
 }
 ```
 
-I suppose the code above is pretty clear: I defined a `promiseTimeout` function, which takes in a time in milliseconds and a `promise`, and returns a race between that `promise` and a locally defined one, called `timeout`. The `timeout` promise, in turn, does nothing but reject in `ms` milliseconds.
+I suppose the code above is pretty clear: I defined a `promiseTimeout` function, which takes in a time in milliseconds and a `promise`, and returns a race between the passed in and a locally defined promise, called `timeout`. The `timeout` promise, in turn, does nothing but reject in `ms` milliseconds.
 
-As stated in the specification we read above, `Promise.race` will give us a new promise that gets resolved or rejected as soon as any of the passed promises resolve or reject. Back to our function's scope, if `promise` doesn't resolve nor reject within `ms` milliseconds, we'll get the `timeout` rejection instead.
+As stated in the specification we read above, `Promise.race` will give us a new promise that gets resolved or rejected as soon as any of the passed promises resolve or reject.
+
+Back to our function's scope, if `promise` doesn't resolve nor reject within `ms` milliseconds, we'll get the `timeout` rejection instead.
 
 ## Usage
 
@@ -138,7 +138,7 @@ export default const promiseTimeout = function(ms, promise){
 }
 ```
 
-Now, by importing `timeoutPromise` and passing `doSomething()` as parameter to it (instead of calling it directly), we're able to specify a timeout to `doSomething` even if we don't have access to it's source.
+Now, by importing `timeoutPromise` and passing `doSomething()` as a parameter to it (instead of calling it directly), we're able to specify a timeout to `doSomething` even if we don't have access to it's source.
 
 Take a look at the final code:
 
