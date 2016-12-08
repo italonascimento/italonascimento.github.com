@@ -84,7 +84,7 @@ race.then((res) => console.log(res)) // -> Promise A win!
 
 Could you picture a solution already?
 
-At this point we could already say taht `promiseA` is acting as a timeout of 200ms, except for a tiny detail: we would except a timeout to reject our promise, not to resolve it.
+At this point we could already say taht `promiseA` is acting as a timeout of 200ms, except for a tiny detail: we would expect a timeout to reject our promise, not to resolve it.
 
 So let's get our hands dirty and code it properly!
 
@@ -111,7 +111,7 @@ const promiseTimeout = function(ms, promise){
 
 I suppose the code above is pretty clear: I defined a `promiseTimeout` function, which takes in a time in milliseconds and a `promise`, and returns a race between the passed in and a locally defined promise, called `timeout`. The `timeout` promise, in turn, does nothing but reject in `ms` milliseconds.
 
-As stated in the specification we read above, `Promise.race` will give us a new promise that gets resolved or rejected as soon as any of the passed promises resolve or reject.
+As stated in the specification we read above, `Promise.race` will give us a new promise that gets resolved or rejected as soon as any of the provided promises resolve or reject.
 
 Back to our function's scope, if `promise` doesn't resolve nor reject within `ms` milliseconds, we'll get the `timeout` rejection instead.
 
