@@ -23,7 +23,7 @@ The answer: by setting up a good environment.
 
 There are plenty of JavaScript libraries and tools available, and each of them aim to address specific issues. If we pick the right ones and successfully combine them, we are able to build our own integrated development environment, fully addapted to our (and our project's) needs. This way we can achieve amazing results, such as:
 
-* Write code in a newer standards ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and compile to widely supported ECMAScript 5;
+* Write code in newer standards ([ECMAScript 6](http://es6-features.org/)), taking advantage of higher level techniques, and compile to widely supported ECMAScript 5;
 * Keep code modular and bundle it up to a single file for production;
 * Manage dependencies when using third part modules;
 * Automate tasks that are constantly repeated during development.
@@ -54,9 +54,9 @@ If you have an earlier version in your machine (or no version at all), you can g
 
 #### Verifying npm version
 
-Oce node.js is installed, npm is surely also available. Let's verify it's version:
+Once node.js is installed, npm is surely also available. Let's verify it's version:
 
-```console
+```consolem
 $ npm --version
 $ 4.0.2
 ```
@@ -113,7 +113,7 @@ Then, npm will ask a few questions about your project, for which you can type an
 As I stated before, for this project we're going to install webpack and babel. They are both development dependencies, which means they're required during development but not in production (as they're a bundling and a compiling tool, right?). For that reason, we're going to pass the flag `--save-dev` to npm along with the installation command:
 
 ```console
-$ npm install --save-dev webpack babel-loader babael-core
+$ npm install --save-dev webpack babel-loader babel-core
 ```
 
 Now they're installed under `/node_modules` and referenced in `package.json` under `devDependencies`.
