@@ -1,0 +1,39 @@
+---
+layout: post
+title: "Reactive Node back-end with SockPipe"
+description: "Tutorial on how to create a chat room using reactive programming with SockPipe framework and websocket protocol."
+date: 2017-11-27
+tags: [node, rxjs, reactive programming, sockpipe]
+comments: true
+share: true
+---
+
+##TL;DR
+
+SockPipe is a small Node.js framework that allows us to deal with websocket communication as a reactive stream of messages. This way we're able to transform, combine and consume the transmitted data in a declarative manner.
+
+## Websocket as a stream
+
+The key idea behind reactive programming is to automatically respond to data transformation over time. Basically, once you have a flow of processing and manipulation defined, any new value of the source data will pass through such flow again, so you may consume it's outcome anywhere in the application, trusting it will be up to date with every new value of the original source.
+
+```js
+const button = document. getElementById('button')
+const click$ = Observable.fromEvent(button, 'click')
+const randomValue$ = click.mapTo(Math.random() * 10)
+const randomValuesList$ = click.scan((prevList, newValue) => {
+  return [
+    ...prevList,
+    newValue
+  ]
+}, [])
+const total$ = randomValuesList.reduce((acc, curr) => acc + curr)
+
+total.subscribe(console.log)
+// will log new total anytime you click the button
+```
+
+Now, if instead of a stream of click events our source data was a stream of messages through a websocket connection, we could return the outcome to the client instead of logging to the console:
+
+```js
+
+```
