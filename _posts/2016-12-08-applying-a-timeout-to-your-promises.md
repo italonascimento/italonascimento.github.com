@@ -84,7 +84,7 @@ race.then((res) => console.log(res)) // -> Promise A win!
 
 Could you picture a solution already?
 
-At this point we could already say taht `promiseA` is acting as a timeout of 200ms, except for a tiny detail: we would expect a timeout to reject our promise, not to resolve it.
+At this point we could already say that `promiseA` is acting as a timeout of 200ms, except for a tiny detail: we would expect a timeout to reject our promise, not to resolve it.
 
 So let's get our hands dirty and code it properly!
 
